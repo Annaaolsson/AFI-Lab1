@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/annao/AFI/AFI-Lab1/AFI-Lab1.csproj",
+      "projectUniqueName": "/Users/annao/AFI/AFILab1/Annonssystem/AFI-Lab1.csproj",
       "projectName": "AFI-Lab1",
-      "projectPath": "/Users/annao/AFI/AFI-Lab1/AFI-Lab1.csproj",
+      "projectPath": "/Users/annao/AFI/AFILab1/Annonssystem/AFI-Lab1.csproj",
       "packagesPath": "/Users/annao/.nuget/packages/",
-      "outputPath": "/Users/annao/AFI/AFI-Lab1/obj/",
+      "outputPath": "/Users/annao/AFI/AFILab1/Annonssystem/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/annao/.nuget/NuGet/NuGet.Config"
