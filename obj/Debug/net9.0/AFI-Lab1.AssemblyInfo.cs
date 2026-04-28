@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AFI-Lab1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39b82351a3e0a018e5f14b880ef42932d36ada44")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f18e071b9560d9834314d5d155bb5c9c83dda6e")]
 [assembly: System.Reflection.AssemblyProductAttribute("AFI-Lab1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AFI-Lab1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

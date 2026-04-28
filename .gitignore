@@ -1,2 +1,35 @@
-# Frintend libraries
+# Frontend libraries
 **/wwwroot/lib/
+
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider / VS Code
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Environment files
+.env
+
+# ASP.NET Core
+appsettings.Development.json
+
+# Node (om du råkar använda det)
+node_modules/
