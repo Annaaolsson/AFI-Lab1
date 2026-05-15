@@ -1,0 +1,6 @@
+@Prenumerantsystem_HostAddress = http://localhost:5249
+
+GET {{Prenumerantsystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
