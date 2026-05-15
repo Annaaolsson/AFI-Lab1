@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Prenumerantsystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d6d3b04d51ff9e3381bce77a9cc91131221110f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Prenumerantsystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Prenumerantsystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

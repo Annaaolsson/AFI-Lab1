@@ -53,13 +53,15 @@ TemporaryDependencyNodeTargetIdentifier=net9.0
 /warnaserror+:NU1605,SYSLIB0011
 
 [sourceFiles]
-Controllers/PrenumeranterController.cs
+Controllers/SubscriberController.cs
 Data/AppDbContext.cs
 Migrations/
  20260515130310_InitialCreate.cs
  20260515130310_InitialCreate.Designer.cs
+ 20260515142829_RenamePrenumerantToSubscriber.cs
+ 20260515142829_RenamePrenumerantToSubscriber.Designer.cs
  AppDbContextModelSnapshot.cs
-Models/Prenumerant.cs
+Models/Subscriber.cs
 obj/Debug/net9.0/
  .NETCoreApp,Version=v9.0.AssemblyAttributes.cs
  Prenumerantsystem.AssemblyInfo.cs

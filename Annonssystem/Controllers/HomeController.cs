@@ -1,8 +1,13 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using AFI_Lab1.Models;
+using System.Net.Http;
+using System.Text.Json;
+using System.Text.Json;
+using Annonssystem.Models;
+using Microsoft.AspNetCore.Mvc;
 
-namespace AFI_Lab1.Controllers;
+namespace Annonssystem.Controllers;
 
 public class HomeController : Controller
 {
@@ -27,5 +32,31 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+	public async Task<IActionResult> GetSubscriber(int subscriptionNumber)
+    {
+        using var client = new HttpClient();
+
+        var response = await client.GetAsync(
+            $"http://localhost:5249/api/subscribers/{subscriptionNumber}"
+        );
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return NotFound("Subscriber could not be found.");
+        }
+
+        var json = await response.Content.ReadAsStringAsync();
+
+        var subscriber = JsonSerializer.Deserialize<Subscriber>(
+            json,
+            new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            }
+        );
+
+        return View(subscriber);
     }
 }
