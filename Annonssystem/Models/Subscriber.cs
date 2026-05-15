@@ -1,4 +1,4 @@
-namespace Annonssystem.Models;
+namespace AFI_Lab1.Models;
 
 public class Subscriber
 {

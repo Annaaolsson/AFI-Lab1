@@ -4,7 +4,7 @@ using AFI_Lab1.Models;
 using System.Net.Http;
 using System.Text.Json;
 using System.Text.Json;
-using Annonssystem.Models;
+using AFI_Lab1.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Annonssystem.Controllers;

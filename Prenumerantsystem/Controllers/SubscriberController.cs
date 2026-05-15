@@ -42,4 +42,20 @@ public class SubscribersController : ControllerBase
             subscriber
         );
     }
+
+	[HttpDelete("{id}")]
+	public async Task<IActionResult> DeleteSubscriber(int id)
+	{
+		var subscriber = await _context.Subscribers.FindAsync(id);
+
+		if (subscriber == null)
+		{
+			return NotFound("Subscriber not found.");
+		}
+
+		_context.Subscribers.Remove(subscriber);
+		await _context.SaveChangesAsync();
+
+		return Ok("Subscriber deleted.");
+	}
 }
