@@ -4,3 +4,5 @@ obj/
 .postman/
 postman/
 *.lscache
+appsettings.json
+appsettings.Development.json
