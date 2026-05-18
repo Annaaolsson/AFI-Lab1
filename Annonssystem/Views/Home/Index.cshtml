@@ -1,8 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Create Ad";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h2>Create ad</h2>
+
+<form method="get" action="/Home/GetSubscriber">
+    <div>
+        <label>
+            <input type="radio" name="advertiserType" value="subscriber" checked />
+            Subscriber
+        </label>
+
+        <label>
+            <input type="radio" name="advertiserType" value="company" />
+            Company
+        </label>
+    </div>
+
+    <div>
+        <label>Subscription number:</label>
+        <input type="number" name="subscriptionNumber" />
+    </div>
+
+    <button type="submit">Fetch subscriber</button>
+</form>

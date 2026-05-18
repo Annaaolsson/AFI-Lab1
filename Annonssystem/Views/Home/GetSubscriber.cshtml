@@ -1,10 +1,61 @@
 @model AFI_Lab1.Models.Subscriber
 
-<h2>Subscriber</h2>
+<h2>Create ad for subscriber</h2>
 
-<p><strong>Subscription number:</strong> @Model.SubscriptionNumber</p>
-<p><strong>Name:</strong> @Model.FirstName @Model.LastName</p>
-<p><strong>Personal number:</strong> @Model.PersonalNumber</p>
-<p><strong>Address:</strong> @Model.DeliveryAddress</p>
-<p><strong>Postal code:</strong> @Model.PostalCode</p>
-<p><strong>City:</strong> @Model.City</p>
+<form method="post" action="/Home/CreateAd">
+    <input type="hidden" name="SubscriptionNumber" value="@Model.SubscriptionNumber" />
+
+    <div>
+        <label>First name:</label>
+        <input name="FirstName" value="@Model.FirstName" />
+    </div>
+
+    <div>
+        <label>Last name:</label>
+        <input name="LastName" value="@Model.LastName" />
+    </div>
+
+    <div>
+        <label>Phone number:</label>
+        <input name="PhoneNumber" />
+    </div>
+
+    <div>
+        <label>Address:</label>
+        <input name="DeliveryAddress" value="@Model.DeliveryAddress" />
+    </div>
+
+    <div>
+        <label>Postal code:</label>
+        <input name="PostalCode" value="@Model.PostalCode" />
+    </div>
+
+    <div>
+        <label>City:</label>
+        <input name="City" value="@Model.City" />
+    </div>
+
+    <hr />
+
+    <div>
+        <label>Ad title:</label>
+        <input name="Title" />
+    </div>
+
+    <div>
+        <label>Ad content:</label>
+        <textarea name="Content"></textarea>
+    </div>
+
+    <div>
+        <label>Item price:</label>
+        <input type="number" name="ItemPrice" />
+    </div>
+
+    <div>
+        <label>Ad price:</label>
+        <input name="AdPrice" value="0" readonly />
+    </div>
+
+    <button type="submit">Create ad</button>
+</form>
