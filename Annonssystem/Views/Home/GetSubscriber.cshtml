@@ -1,61 +1,76 @@
-@model AFI_Lab1.Models.Subscriber
+@model AFI_Lab1.Models.CreateAdViewModel
 
 <h2>Create ad for subscriber</h2>
 
-<form method="post" action="/Home/CreateAd">
-    <input type="hidden" name="SubscriptionNumber" value="@Model.SubscriptionNumber" />
+<form asp-action="CreateAd" method="post">
+    <input asp-for="SubscriptionNumber" type="hidden" />
+
+    <div asp-validation-summary="All" style="color:red;"></div>
 
     <div>
         <label>First name:</label>
-        <input name="FirstName" value="@Model.FirstName" />
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName" style="color:red;"></span>
     </div>
 
     <div>
         <label>Last name:</label>
-        <input name="LastName" value="@Model.LastName" />
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName" style="color:red;"></span>
     </div>
 
     <div>
         <label>Phone number:</label>
-        <input name="PhoneNumber" />
+        <input asp-for="PhoneNumber" />
+        <span asp-validation-for="PhoneNumber" style="color:red;"></span>
     </div>
 
     <div>
         <label>Address:</label>
-        <input name="DeliveryAddress" value="@Model.DeliveryAddress" />
+        <input asp-for="DeliveryAddress" />
+        <span asp-validation-for="DeliveryAddress" style="color:red;"></span>
     </div>
 
     <div>
         <label>Postal code:</label>
-        <input name="PostalCode" value="@Model.PostalCode" />
+        <input asp-for="PostalCode" />
+        <span asp-validation-for="PostalCode" style="color:red;"></span>
     </div>
 
     <div>
         <label>City:</label>
-        <input name="City" value="@Model.City" />
+        <input asp-for="City" />
+        <span asp-validation-for="City" style="color:red;"></span>
     </div>
 
     <hr />
 
     <div>
         <label>Ad title:</label>
-        <input name="Title" />
+        <input asp-for="Title" />
+        <span asp-validation-for="Title" style="color:red;"></span>
     </div>
 
     <div>
         <label>Ad content:</label>
-        <textarea name="Content"></textarea>
+        <textarea asp-for="Content"></textarea>
+        <span asp-validation-for="Content" style="color:red;"></span>
     </div>
 
     <div>
         <label>Item price:</label>
-        <input type="number" name="ItemPrice" />
+        <input asp-for="ItemPrice" type="number" />
+        <span asp-validation-for="ItemPrice" style="color:red;"></span>
     </div>
 
     <div>
         <label>Ad price:</label>
-        <input name="AdPrice" value="0" readonly />
+        <input asp-for="AdPrice" readonly />
     </div>
 
     <button type="submit">Create ad</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

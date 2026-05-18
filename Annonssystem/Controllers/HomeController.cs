@@ -38,55 +38,64 @@ public class HomeController : Controller
     }
 
 	public async Task<IActionResult> GetSubscriber(int subscriptionNumber)
-    {
-        using var client = new HttpClient();
+	{
+		using var client = new HttpClient();
 
-        var response = await client.GetAsync(
-            $"http://localhost:5249/api/subscribers/{subscriptionNumber}"
-        );
+		var response = await client.GetAsync(
+			$"http://localhost:5249/api/subscribers/{subscriptionNumber}"
+		);
 
-        if (!response.IsSuccessStatusCode)
-        {
-            return NotFound("Subscriber could not be found.");
-        }
+		if (!response.IsSuccessStatusCode)
+		{
+			return Content("Subscriber not found.");
+		}
 
-        var json = await response.Content.ReadAsStringAsync();
+		var json = await response.Content.ReadAsStringAsync();
 
-        var subscriber = JsonSerializer.Deserialize<Subscriber>(
-            json,
-            new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            }
-        );
+		var subscriber = JsonSerializer.Deserialize<Subscriber>(
+			json,
+			new JsonSerializerOptions
+			{
+				PropertyNameCaseInsensitive = true
+			}
+		);
 
-        return View(subscriber);
-    }
+		if (subscriber == null)
+		{
+			return Content("Could not read subscriber data.");
+		}
+
+		var model = new CreateAdViewModel
+		{
+			SubscriptionNumber = subscriber.SubscriptionNumber,
+			FirstName = subscriber.FirstName,
+			LastName = subscriber.LastName,
+			DeliveryAddress = subscriber.DeliveryAddress,
+			PostalCode = subscriber.PostalCode,
+			City = subscriber.City,
+			AdPrice = 0
+		};
+
+		return View(model);
+	}
 
 	[HttpPost]
-	public async Task<IActionResult> CreateAd(
-		string firstName,
-		string lastName,
-		string phoneNumber,
-		string deliveryAddress,
-		string postalCode,
-		string city,
-		string title,
-		string content,
-		decimal itemPrice,
-		decimal adPrice,
-		int subscriptionNumber
-	)
+	public async Task<IActionResult> CreateAd(CreateAdViewModel model)
 	{
+		if (!ModelState.IsValid)
+		{
+			return View("GetSubscriber", model);
+		}
+
 		var advertiser = new Advertiser
 		{
 			AdvertiserType = "subscriber",
-			SubscriptionNumber = subscriptionNumber,
-			Name = firstName + " " + lastName,
-			PhoneNumber = phoneNumber,
-			DeliveryAddress = deliveryAddress,
-			PostalCode = postalCode,
-			City = city
+			SubscriptionNumber = model.SubscriptionNumber,
+			Name = model.FirstName + " " + model.LastName,
+			PhoneNumber = model.PhoneNumber,
+			DeliveryAddress = model.DeliveryAddress,
+			PostalCode = model.PostalCode,
+			City = model.City
 		};
 
 		_context.Advertisers.Add(advertiser);
@@ -94,10 +103,10 @@ public class HomeController : Controller
 
 		var ad = new Ad
 		{
-			Title = title,
-			Content = content,
-			ItemPrice = itemPrice,
-			AdPrice = 0, // prenumeranter = gratis
+			Title = model.Title,
+			Content = model.Content,
+			ItemPrice = model.ItemPrice,
+			AdPrice = 0,
 			AdvertiserId = advertiser.Id
 		};
 
